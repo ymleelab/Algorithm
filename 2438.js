@@ -17,4 +17,4 @@ rl.on("line", (line) => {
     }
     console.log(result);
     process.exit();
-});
+}); 
