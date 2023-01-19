@@ -26,6 +26,9 @@ X가 2로 나누어 떨어지면, 2로 나눈다.
 힌트
 10의 경우에 10 -> 9 -> 3 -> 1 로 3번 만에 만들 수 있다. */
 
+// const fs = require('fs');
+// const input = Number(fs.readFileSync('./dev/stdin').toString());
+
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -46,7 +49,8 @@ rl.on("line", (line) => {
 
     if (i % 3 === 0) {
       dp[i] = Math.min(dp[i], dp[i / 3] + 1);
-    } else if (i % 2 === 0) {
+    }
+    if (i % 2 === 0) {
       dp[i] = Math.min(dp[i], dp[i / 2] + 1);
     }
   }
