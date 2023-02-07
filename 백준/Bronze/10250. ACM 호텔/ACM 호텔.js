@@ -5,23 +5,22 @@ solution();
 
 function solution() {
   input.shift();
-  input.map((data) => {
+  for (data of input) {
     const [H, W, N] = data.split(" ").map((n) => Number(n));
     let floor = H;
-    let room;
-    
+
     if (N <= H) {
       console.log(Number(namingRoom(N, 1)));
-    } else {
-      for (room = 1; room <= W; room++) {
-        if (H * room >= N) {
-          break;
-        }
-        floor = N - H * room;
-      }
-      console.log(Number(namingRoom(floor, room)));
+      continue;
     }
-  });
+    for (let room = 1; room <= W; room++) {
+      if (H * room >= N) {
+        console.log(Number(namingRoom(floor, room)));
+        break;
+      }
+      floor = N - H * room;
+    }
+  }
 }
 
 function namingRoom(floor, room) {
